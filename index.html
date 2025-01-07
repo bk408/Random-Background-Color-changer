@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Background Color Changer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 1.8rem;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 15px;
+        gap: 20px;
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 600;
+      }
+
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #feac32;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #feac32f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Random Background Color Changer</h2>
+    <div class="container">
+      <p>Hex Code: <span id="random-code">#FFFFFF</span></p>
+      <button>Change Background Color</button>
+    </div>
+    <script>
+      const darkColorsArr = [
+        "#2C3E50",
+        "#34495E",
+        "#2C2C2C",
+        "#616A6B",
+        "#4A235A",
+        "#2F4F4F",
+        "#0E4B5A",
+        "#36454F",
+        "#2C3E50",
+        "#800020",
+      ];
+
+      const btn = document.querySelector("button");
+      const hashCode = document.getElementById("random-code");
+
+      btn.addEventListener("click", function () {
+        let randomIndex = Math.floor(Math.random() * darkColorsArr.length);
+        let hashColor = (hashCode.innerHTML = darkColorsArr[randomIndex]);
+        document.body.style.backgroundColor = hashColor;
+      });
+    </script>
+  </body>
+</html>
